@@ -61,28 +61,39 @@
                 
                 <div class="contact-form">
                     <h2>Envoyez-moi un message</h2>
-                    <form id="contactForm">
+                    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
+                        <p class="hidden">
+                            <label>Ne remplissez pas ce champ si vous êtes humain: <input name="bot-field" /></label>
+                        </p>
                         <div class="form-group">
                             <label for="name">Nom complet *</label>
-                            <input type="text" id="name" name="name" required>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Votre nom" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="email">Email *</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="votre@email.com" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="subject">Sujet</label>
-                            <input type="text" id="subject" name="subject">
+                            <input type="text" id="subject" name="subject" class="form-control" placeholder="Objet de votre message">
                         </div>
                         
                         <div class="form-group">
                             <label for="message">Message *</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
+                            <textarea id="message" name="message" rows="5" class="form-control" placeholder="Votre message ici..." required></textarea>
                         </div>
                         
-                        <button type="submit" class="btn btn-primary">Envoyer le message</button>
+                        <div class="form-group">
+                            <div data-netlify-recaptcha="true"></div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Envoyer le message
+                        </button>
+                        
+                        <div class="form-status" id="formStatus"></div>
                     </form>
                 </div>
             </div>
@@ -98,7 +109,7 @@
                 </div>
                 <div class="footer-section">
                     <h3>Contact</h3>
-                    <p>Email: sergiognagniko@gmail.com</p>
+                    <p>Email: gnagnikosergio@gmail.com</p>
                     <p>Téléphone: +228 93 46 09 34</p>
                 </div>
                 <div class="footer-section">
@@ -118,11 +129,75 @@
 
     <script src="js/main.js"></script>
     <script>
-        // Gestion du formulaire de contact (version statique)
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Merci pour votre message ! Dans une version complète, ce formulaire enverrait votre message.');
-            this.reset();
+        // Gestion du formulaire de contact avec Netlify Forms
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form[name="contact"]');
+            const formStatus = document.getElementById('formStatus');
+            
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Désactiver le bouton pendant l'envoi
+                    const submitButton = form.querySelector('button[type="submit"]');
+                    const originalButtonText = submitButton.innerHTML;
+                    submitButton.disabled = true;
+                    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
+                    
+                    // Préparer les données du formulaire
+                    const formData = new FormData(form);
+                    
+                    // Envoyer les données à Netlify Forms
+                    fetch('/', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: new URLSearchParams(formData).toString()
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            // Succès
+                            formStatus.className = 'form-status success';
+                            formStatus.innerHTML = '✅ Votre message a été envoyé avec succès ! Je vous répondrai dès que possible.';
+                            form.reset();
+                        } else {
+                            throw new Error('Erreur réseau');
+                        }
+                    })
+                    .catch(error => {
+                        // Erreur
+                        formStatus.className = 'form-status error';
+                        formStatus.innerHTML = '❌ Une erreur est survenue lors de l\'envoi du message. Veuillez réessayer plus tard ou me contacter directement par email.';
+                        console.error('Erreur:', error);
+                    })
+                    .finally(() => {
+                        // Réactiver le bouton
+                        submitButton.disabled = false;
+                        submitButton.innerHTML = originalButtonText;
+                        
+                        // Faire défiler jusqu'au message de statut
+                        formStatus.scrollIntoView({ behavior: 'smooth' });
+                        
+                        // Cacher le message après 10 secondes
+                        setTimeout(() => {
+                            formStatus.className = 'form-status';
+                            formStatus.innerHTML = '';
+                        }, 10000);
+                    });
+                });
+            }
+            
+            // Ajout d'une animation de chargement pour Font Awesome
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes fa-spin {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(359deg); }
+                }
+                .fa-spinner.fa-spin {
+                    animation: fa-spin 2s linear infinite;
+                }
+            `;
+            document.head.appendChild(style);
         });
     </script>
 </body>
