@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Mon Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo"><a href="index.html">Mon Portfolio</a></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="about.html">À propos</a></li>
+                    <li><a href="projects.html">Projets</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="contact-page">
+        <div class="container">
+            <h1>Contactez-moi</h1>
+            <p class="section-subtitle">N'hésitez pas à me contacter pour toute question ou opportunité de collaboration</p>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h2>Informations de contact</h2>
+                    <p>Je suis disponible pour discuter de votre projet et répondre à vos questions. N'hésitez pas à me contacter par email, téléphone ou via les réseaux sociaux.</p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-card fade-in">
+                            <i class="fas fa-envelope"></i>
+                            <h3>Email</h3>
+                            <a href="mailto:gnagnikosergio@gmail.com">gnagnikosergio@gmail.com</a>
+                        </div>
+                        
+                        <div class="contact-card fade-in">
+                            <i class="fas fa-phone"></i>
+                            <h3>Téléphone</h3>
+                            <a href="tel:+22893460934">+228 93 46 09 34</a>
+                        </div>
+                        
+                        <div class="contact-card fade-in">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h3>Localisation</h3>
+                            <p>Lomé, Togo</p>
+                        </div>
+                        
+                        <div class="social-links">
+                            <a href="#" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+                            <a href="#" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h2>Envoyez-moi un message</h2>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nom complet *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Sujet</label>
+                            <input type="text" id="subject" name="subject">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Envoyer le message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>À propos</h3>
+                    <p>Développeur web passionné par la création d'expériences numériques innovantes.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: sergiognagniko@gmail.com</p>
+                    <p>Téléphone: +228 93 46 09 34</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Réseaux sociaux</h3>
+                    <div class="social-links">
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Gysm. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Gestion du formulaire de contact (version statique)
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Merci pour votre message ! Dans une version complète, ce formulaire enverrait votre message.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

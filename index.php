@@ -8,7 +8,7 @@ require_once 'partials/header.php';
     <section class="hero">
         <div class="container">
             <h1>Bienvenue sur mon Portfolio</h1>
-            <p class="lead">Développeur Web passionné par la création d'expériences numériques exceptionnelles</p>
+            <p class="lead">Développeur Web passionné par la création des site web et des applications web/mobile</p>
             <a href="#projects" class="btn btn-primary">Voir mes projets</a>
         </div>
     </section>
@@ -19,7 +19,7 @@ require_once 'partials/header.php';
             <h2>À propos de moi</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>Je suis un développeur web passionné avec une expertise en création de sites web modernes et réactifs.</p>
+                    <p>Je suis un développeur web passionné pour la création de sites web et des applications web/mobile.</p>
                     <a href="about.php" class="btn btn-secondary">En savoir plus</a>
                 </div>
             </div>
@@ -66,7 +66,7 @@ require_once 'partials/header.php';
                         <li>HTML5 & CSS3</li>
                         <li>JavaScript (ES6+)</li>
                         <li>jQuery</li>
-                        <li>React.js</li>
+                        <li>Bootstrap</li>
                     </ul>
                 </div>
                 <div class="skill-category">
@@ -74,7 +74,6 @@ require_once 'partials/header.php';
                     <ul>
                         <li>PHP</li>
                         <li>MySQL</li>
-                        <li>Node.js</li>
                     </ul>
                 </div>
             </div>

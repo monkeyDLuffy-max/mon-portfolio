@@ -13,8 +13,8 @@
                 </div>
                 <div class="footer-section">
                     <h3>Contact</h3>
-                    <p>Email: contact@monportfolio.com</p>
-                    <p>Téléphone: +33 6 12 34 56 78</p>
+                    <p>Email: sergiognagniko@gmail.com</p>
+                    <p>Téléphone: +228 93 46 09 34</p>
                 </div>
                 <div class="footer-section">
                     <h3>Réseaux sociaux</h3>
@@ -26,7 +26,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; <?php echo date('Y'); ?> Mon Portfolio. Tous droits réservés.</p>
+                <p>&copy; <?php echo date('Y'); ?> Gysm. Tous droits réservés.</p>
             </div>
         </div>
     </footer>

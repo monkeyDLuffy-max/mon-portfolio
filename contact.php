@@ -60,19 +60,19 @@ require_once 'partials/header.php';
                 <div class="contact-card fade-in">
                     <i class="fas fa-envelope"></i>
                     <h3>Email</h3>
-                    <a href="mailto:contact@monportfolio.com">contact@monportfolio.com</a>
+                    <a href="mailto:gnagnikosergio@gmail.com">gnagnikosergio@gmail.com</a>
                 </div>
                 
                 <div class="contact-card fade-in">
                     <i class="fas fa-phone"></i>
                     <h3>Téléphone</h3>
-                    <a href="tel:+33123456789">+33 1 23 45 67 89</a>
+                    <a href="tel:+22893460934">+228 93 46 09 34</a>
                 </div>
                 
                 <div class="contact-card fade-in">
                     <i class="fas fa-map-marker-alt"></i>
                     <h3>Localisation</h3>
-                    <p>Paris, France</p>
+                    <p>Lomé, Togo</p>
                 </div>
                 
                 <div class="social-links">

@@ -7,7 +7,7 @@ require_once 'partials/header.php';
     <div class="container">
         <div class="section-title">
             <h2>À propos de moi</h2>
-            <p>Développeur web passionné par la création d'expériences numériques innovantes</p>
+            <p>Je suis un développeur web passionné par la création d'expériences numériques innovantes</p>
         </div>
 
         <div class="about-content">
@@ -24,7 +24,7 @@ require_once 'partials/header.php';
                 <div class="personal-info">
                     <div class="info-item">
                         <span class="info-label">Nom :</span>
-                        <span class="info-value">[Votre Nom]</span>
+                        <span class="info-value">Gnagniko </span>
                     </div>
                     <div class="info-item">
                         <span class="info-label">Email :</span>
