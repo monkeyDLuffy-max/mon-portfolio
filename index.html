@@ -28,7 +28,7 @@
             <div class="container">
                 <div class="hero-content">
                     <div class="hero-text">
-                        <h1 id="dynamic-title">Bienvenue sur mon Portfolio</h1>
+                        <h1 id="dynamic-title"></h1>
                         <p class="lead">Développeur Web passionné par la création de sites web et d'applications web/mobile</p>
                         <div class="hero-buttons">
                             <a href="#contact" class="btn btn-primary">Me contacter</a>
@@ -99,8 +99,26 @@
         </div>
     </footer>
     <script>
-    // Animation au défilement
+    // Animation du titre dynamique
     document.addEventListener('DOMContentLoaded', function() {
+        // Animation de frappe du titre
+        const titleElement = document.getElementById('dynamic-title');
+        titleElement.textContent = ''; // Vider le contenu initial
+        const titleText = "Bienvenue sur mon Portfolio";
+        let charIndex = 0;
+        
+        function typeWriter() {
+            if (charIndex < titleText.length) {
+                titleElement.textContent += titleText.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeWriter, 100); // Vitesse de frappe (100ms par lettre)
+            }
+        }
+        
+        // Démarrer l'animation après un court délai
+        setTimeout(typeWriter, 500);
+        
+        // Animation au défilement
         const observerOptions = {
             threshold: 0.1
         };
