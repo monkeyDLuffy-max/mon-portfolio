@@ -98,25 +98,9 @@
             </div>
         </div>
     </footer>
-<script>
-    // Animation du titre dynamique
+    <script>
+    // Animation au défilement
     document.addEventListener('DOMContentLoaded', function() {
-        const titleElement = document.getElementById('dynamic-title');
-        const titleText = "Bienvenue sur mon Portfolio";
-        let currentIndex = 0;
-        
-        function typeWriter() {
-            if (currentIndex < titleText.length) {
-                titleElement.textContent += titleText.charAt(currentIndex);
-                currentIndex++;
-                setTimeout(typeWriter, 100); // Vitesse de frappe (en ms)
-            }
-        }
-        
-        // Démarrer l'animation après un court délai
-        setTimeout(typeWriter, 500);
-        
-        // Animation au défilement
         const observerOptions = {
             threshold: 0.1
         };
